@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  PROFİL
+{% endblock %}
+
+
+{% block content %}
+
+   <div class="col-md-5">
+      <table class="table table-light">
+       <tr>
+         <td><p>Kullanı Adı: </p></td>
+         <td><p>{{user_obj.0}} </p></td>
+       </tr>
+       <tr>
+         <td><p>İsim Soyisim: </p></td>
+         <td><p>{{user_obj.1}} {{user_obj.2}}</p></td>
+       </tr>
+       <tr>
+         <td><p>Email: </p></td>
+         <td>{{user_obj.3}}</p></td>
+       </tr>
+       <tr>
+         <td><p>Adres: </p></td>
+         <td><p>{{user_obj.4}} </p></td>
+      </tr>
+      </table>
+     <p><a href="/profilduzenle" class="btn btn-dark"> Düzenle </a>
+     <a href="/cikisyap" class="btn btn-dark"> Çıkış Yap </a></p>
+     <p><a href="/hesapsil" class="btn btn-danger"> Hesap sil </a></p>
+   </div>
+
+{% endblock %}

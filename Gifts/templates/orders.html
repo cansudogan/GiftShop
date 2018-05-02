@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Sepetim
+{% endblock %}
+
+
+{% block content %}
+<div class="col-md-8">
+  {% if items != None %}
+    <table class="table table-light">
+      {% for item in items %}
+        <tr>
+          <td>  <img src="/static/GiftShop/{{item.2}}" width="400px"></td>
+            <td>
+              <p><b>{{item.1}}</b></p>
+              <p><b>Fiyat: {{item.3}} ₺ </b></p>
+              <a href="sepettencikar/{{item.0}}" class="btn btn-danger" onclick="myFunction()">Sepetten Çıkar</a></tr></td>
+            </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+  <hr>
+  {% if order == None %}
+    <h3> Sepetiniz Boş </h3>
+   {% else %}
+       <p><b>Sipariş Numarası : {{ order.0 }} </b></p>
+       <p><b>Toplam Tutar: {{ order.1 }} ₺</b></p>
+       <button class="btn btn-dark" onclick="odemeTamamla()">Alışverişi tamamla</button>
+   {% endif %}
+   <hr>
+ </div>
+
+ <script>
+ function odemeTamamla() {
+   alert("Ödeme Tamamlandı!");
+ }
+ function myFunction() {
+   alert("Ürününüz sepetten çıkarıldı!");
+ }
+</script>
+
+{% endblock %}

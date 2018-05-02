@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  HAKKIMIZDA
+{% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+  <h3> Dilek ve Şikayet bildirmek için lütfen doldurun..</h3>
+  <form action="#" method="post">
+    <table class="table table-light">
+       {% csrf_token %}
+       {% for field in form %}
+         <tr>
+           <td>{{ field.label }}</td>
+           <td>{{ field }}</td>
+         </tr>
+       {% endfor %}
+    </table>
+    <button type="submit" class="btn btn-default" onclick="gonder()">Gönder</button>
+   </form>
+ </div>
+
+   <hr>
+    </br>
+   <h4 align="center">ForYou MÜŞTERİ HİZMETLERİ</h4>
+   <p align="center">CD Elektronik Hiz. San. ve Tic. Ltd. Şti.</p>
+   <h6 align="center">Adres:</h6>
+   <p align="center">
+   Beşiktaş Mah. Cansu Sk. Derya Sit. B2 Blok No 36/4
+   <br>
+   Beşiktaş / İSTANBUL
+   <br>
+   Tel: 0 (212) 555 55 55
+   <br>
+   E-Posta: info@foryou.com</p>
+
+   <script>
+    function gonder() {
+      alert('Gönderildi.');
+    }
+   </script>
+{% endblock %}

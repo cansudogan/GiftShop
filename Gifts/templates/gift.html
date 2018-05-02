@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Hediye Detayı
+{% endblock %}
+
+
+
+{% block content %}
+  <table class="table table-light">
+      <td>
+        <center>
+          <img src="{% static 'GiftShop/' %}{{gift.3}}" width="700px">
+        </center>
+        <p hidden> {{gift.0}}</p>
+
+      </td>
+      <td>
+        <p><b> {{ gift.1 }}</b></p>
+        <p><b> {{ gift.2 }} ₺ </b></p>
+        <p><b>Kutu Boyutu: </b>{{gift.4}}</p>
+        {% autoescape off %}
+          <p><b> Kutu İçeriği:</b></br> {{gift.5}}</p>
+        {% endautoescape %}
+        {% if user.is_authenticated %}
+        <a href="/hediyeler/{{gift.0}}/sepeteekle" class="btn btn-dark" onclick="myFunction()">Sepete Ekle </a>
+        {% else %}
+        <a href="/hediyeler/{{gift.0}}/sepeteekle" class="btn btn-dark">Sepete Ekle </a>
+        {% endif %}
+        {% if user.is_authenticated %}
+           <a href="/hediyeler/{{gift.0}}/favoriekle"  style="margin-left:5em">
+             <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUwIDUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MCA1MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiNDMDNBMkI7IiBkPSJNMjQuODUsMTAuMTI2YzIuMDE4LTQuNzgzLDYuNjI4LTguMTI1LDExLjk5LTguMTI1YzcuMjIzLDAsMTIuNDI1LDYuMTc5LDEzLjA3OSwxMy41NDMgIGMwLDAsMC4zNTMsMS44MjgtMC40MjQsNS4xMTljLTEuMDU4LDQuNDgyLTMuNTQ1LDguNDY0LTYuODk4LDExLjUwM0wyNC44NSw0OEw3LjQwMiwzMi4xNjVjLTMuMzUzLTMuMDM4LTUuODQtNy4wMjEtNi44OTgtMTEuNTAzICBjLTAuNzc3LTMuMjkxLTAuNDI0LTUuMTE5LTAuNDI0LTUuMTE5QzAuNzM0LDguMTc5LDUuOTM2LDIsMTMuMTU5LDJDMTguNTIyLDIsMjIuODMyLDUuMzQzLDI0Ljg1LDEwLjEyNnoiLz4KPHBhdGggc3R5bGU9ImZpbGw6I0VENzE2MTsiIGQ9Ik02LDE4LjA3OGMtMC41NTMsMC0xLTAuNDQ3LTEtMWMwLTUuNTE0LDQuNDg2LTEwLDEwLTEwYzAuNTUzLDAsMSwwLjQ0NywxLDFzLTAuNDQ3LDEtMSwxICBjLTQuNDExLDAtOCwzLjU4OS04LDhDNywxNy42MzEsNi41NTMsMTguMDc4LDYsMTguMDc4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" width="30" height="30" />
+            </a>
+        {% endif %}
+
+      </td>
+ </table>
+ <script>
+ function myFunction() {
+   alert("Ürününüz sepete eklendi!");
+ }
+</script>
+{% endblock %}

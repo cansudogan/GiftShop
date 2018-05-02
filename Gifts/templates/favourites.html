@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Favorilerim
+{% endblock %}
+
+{% block content %}
+<div class="col-md-8">
+     {% if favs.0 == None %}
+      <h3> Favorileriniz Boş</h3>
+     {% endif %}
+     <table class="table table-light">
+         {% for fav in favs %}
+          <tr>
+           <td><img src="/static/GiftShop/{{fav.2}}" width="400px"></td>
+           <td>
+             <p><b>{{fav.1}}</b></p>
+             <p><b> Fiyat: {{fav.3}} ₺</b></p>
+             <a href="favoricikar/{{fav.0}}" class="btn btn-danger" onclick="myFunction()">Favoriden Çıkar</a>
+           </td>
+          </tr>
+         {% endfor %}
+     </table>
+     <script>
+     function myFunction() {
+       alert("Ürününüz favorilerden çıkarıldı!");
+     }
+     </script>
+</div>
+{% endblock %}
